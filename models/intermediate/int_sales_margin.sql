@@ -1,16 +1,16 @@
 WITH product_cost AS (
     SELECT
-        q.products_id,
-        q.quantity,
-        pp.purchse_price,
-        q.revenue
+        q.pdt_id AS products_id,
+        q.quantity AS quantity,
+        pp.purchse_price AS purchse_price,
+        q.revenue AS revenue
     FROM {{ source('raw', 'sales')}} q
-    JOIN {{ source('raw', 'product')}} pp ON q.products_id = pp.products_id
+    JOIN {{ source('raw', 'product')}} pp ON q.pdt_id = pp.products_id
 )
 
 SELECT
     pc.products_id,
-    pc.quantity.
+    pc.quantity,
     pc.purchse_price,
     pc.revenue,
     (pc.quantity * pc.purchse_price) AS purchse_cost,
