@@ -9,8 +9,8 @@ source as (
 renamed as (
 
     select
-        products_id,
-        purchse_price
+        CAST(products_id AS INT) AS products_id,
+        CAST(purchse_price AS FLOAT) AS purchse_price
 
     from source
 

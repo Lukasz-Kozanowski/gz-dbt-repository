@@ -10,10 +10,10 @@ renamed as (
 
     select
         date_date,
-        orders_id,
+        CAST(orders_id AS INT) AS orders_id,
         pdt_id,
         revenue,
-        quantity
+        CAST(quantity AS INT) AS qty
 
     from source
 
