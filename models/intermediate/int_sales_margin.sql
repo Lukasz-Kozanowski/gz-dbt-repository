@@ -1,15 +1,19 @@
 WITH product_cost AS (
     SELECT
+        q.date_date AS date_date,
         q.pdt_id AS products_id,
+        q.orders_id AS orders_id,
         q.quantity AS quantity,
         pp.purchse_price AS purchse_price,
         q.revenue AS revenue
-    FROM {{ source('raw', 'sales')}} q
-    JOIN {{ source('raw', 'product')}} pp ON q.pdt_id = pp.products_id
+    FROM {{ ref("stg_raw__sales")}} q
+    JOIN {{ ref("stg_raw__product")}} pp ON q.pdt_id = pp.products_id
 )
 
 SELECT
+    pc.date_date,
     pc.products_id,
+    pc.orders_id,
     pc.quantity,
     pc.purchse_price,
     pc.revenue,
