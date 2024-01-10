@@ -56,6 +56,3 @@ sources:
         tests:
           - unique:
               column_name: "(date_date || '_' || paid_source || '_' || campaign_key)"
-      - name: finance_days
-        identifier: finance_days
-        description: finance by day
